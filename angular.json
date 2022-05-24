@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "api": "apps/api",
+    "api-interfaces": "libs/api-interfaces",
+    "webben-cv": "apps/webben-cv",
+    "webben-cv-e2e": "apps/webben-cv-e2e"
+  }
+}
