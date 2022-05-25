@@ -1,0 +1,25 @@
+<div class="flex flex-grow-0">
+  <webben-cv-timeline class="timeline w-2/5 p-4"></webben-cv-timeline>
+  <section
+    class="w-full h-auto overflow-scroll-y flex flex-col flex-grow-0 gap-2"
+  >
+    <input
+      class="w-1/3 bg-transparent rounded p-2 border border-blue-500"
+      type="text"
+      placeholder="Search CV by: Angular f.e."
+      [(ngModel)]="search"
+      (ngModelChange)="this.handleSearchChange($event)"
+    />
+    Akumulierte Berufserfahrung:
+    {{ this.steps | async | filter: search | duration }}
+    <webben-cv-section-item
+      class="w-4/5"
+      *ngFor="let step of this.steps | async | filter: search"
+      (mouseenter)="mouseover = step"
+      [step]="step"
+      [active]="step === active"
+      [id]="step.job.employer.name"
+    >
+    </webben-cv-section-item>
+  </section>
+</div>

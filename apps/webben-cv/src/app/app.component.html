@@ -1,9 +1,9 @@
-<div style="text-align: center">
-  <h1>Welcome to webben-cv!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-    alt="Nx - Smart, Fast and Extensible Build System"
-  />
+<div
+  class="h-screen w-full bg-gradient-to-r from-gray-700 via-gray-900 to-black text-white overflow-hidden flex flex-col"
+>
+  <webben-cv-header></webben-cv-header>
+  <main class="grow-0 flex flex-col p-12">
+    <router-outlet></router-outlet>
+  </main>
+  <footer class="fixed bottom-1">thanks</footer>
 </div>
-<div>Message: {{ hello$ | async | json }}</div>

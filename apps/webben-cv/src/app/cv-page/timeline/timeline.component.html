@@ -1,0 +1,23 @@
+<div class="">
+  <div class="absolute flex flex-col gap-1 items-center">
+    <!-- TODO: Filled or outlined ? -->
+    <div
+      class="wrapper flex flex-col justify-center"
+      *ngFor="let i of this.jobs | async | filter: (search$ | async)"
+    >
+      <a
+        class="flex justify-center items-center gap-1"
+        [href]="'#' + i.job.employer.name"
+      >
+        <div
+          class="dot p-1.5 ring-1 ring-blue-400 rounded-full"
+          [ngClass]="{}"
+          (mouseenter)="mouseover = i"
+          (click)="active = i"
+        >
+          <span class="text-sm">{{ i.job.title }}</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

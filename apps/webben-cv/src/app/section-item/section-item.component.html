@@ -1,0 +1,62 @@
+<div class="relative group">
+  <div
+    class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg blur opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"
+    [ngClass]="{ 'bg-gradient-to-l opacity-100': this.active }"
+  ></div>
+  <div class="flex flex-col gap-3 my-4 p-5 rounded-lg relative bg-black">
+    <div class="flex gap-2">
+      <h5 class="font-mono group-hover:text-blue-600 transition">
+        {{ this.step.job.title }}
+      </h5>
+      <span>on</span>
+      <span class="text-slate-600 group-hover:text-purple-600 transition">{{
+        this.step.job.employer.name
+      }}</span>
+    </div>
+
+    <div class="date text-slate-400 flex text-sm gap-1">
+      <span class="">{{ this.step.from | date }}</span>
+      <span class="mx-2">-</span>
+      <span *ngIf="this.step.to.toDateString() !== this.date">{{
+        this.step.to | date
+      }}</span>
+      <span
+        *ngIf="this.step.to.toDateString() === this.date"
+        class="text-lime-200"
+        >ongoing</span
+      >
+      <span>({{ this.duration }})</span>
+    </div>
+    <div class="tags w-full flex-wrap flex gap-1">
+      <div
+        class="border text-blue-500 border-current uppercase px-5 py-1.5 rounded-full text-[10px] tracking-wide"
+        [class.text-lime-600]="searchTerm?.test(s)"
+        *ngFor="let s of this.step.tags"
+      >
+        {{ s }}
+      </div>
+    </div>
+    <p [innerText]="this.step.description"></p>
+    <div class="actions flex justify-end" *ngIf="this.step.attachments">
+      <a
+        class="bg-black text-white rounded-lg px-2 py-1 hover:shadow-purple-600 hover:shadow-sm transition"
+        target="blank"
+        *ngFor="let a of this.step.attachments"
+        [href]="a"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 text-blue-600 opacity-40 hover:opacity-100 transition"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
+          /></svg
+      ></a>
+    </div>
+  </div>
+</div>
