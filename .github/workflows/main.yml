@@ -39,5 +39,5 @@ jobs:
         uses: crazy-max/ghaction-github-pages@v2.6.0
         with:
           # Build directory to deploy
-          build_dir: /dist/webben-cv
+          build_dir: /dist/apps/webben-cv
 
